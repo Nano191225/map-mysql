@@ -616,7 +616,7 @@ export default class Database<K extends string, V> extends Map<string, V> {
 
 (async () => {
     /* Example usage */
-    Database.connect("192.168.1.42", "root", "1225", "test");
+    Database.connect("localhost", "root", "password", "test");
     Database.setJsonPath("name");
     Database.setJsonPath("age");
     Database.setJsonPath("birthday");
