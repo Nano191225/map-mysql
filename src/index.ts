@@ -5,7 +5,6 @@ export default class Database<K extends string, V> extends Map<string, V> {
     private static customPaths: string[] = [];
     private static customPath = false;
     private tableName: string;
-    private _values: string;
     private ready = false;
     private _path: string;
     private _questionMarks: string;
@@ -23,7 +22,6 @@ export default class Database<K extends string, V> extends Map<string, V> {
             });
             values = values.slice(0, -2);
         }
-        this._values = values;
         connection.query(`CREATE TABLE IF NOT EXISTS ${this.tableName} (\`key\` VARCHAR(128) PRIMARY KEY, ${values})`, (error, results, fields) => {
             if (error) throw error;
         });

@@ -9,7 +9,6 @@ class Database extends Map {
     static customPaths = [];
     static customPath = false;
     tableName;
-    _values;
     ready = false;
     _path;
     _questionMarks;
@@ -25,7 +24,6 @@ class Database extends Map {
             });
             values = values.slice(0, -2);
         }
-        this._values = values;
         connection.query(`CREATE TABLE IF NOT EXISTS ${this.tableName} (\`key\` VARCHAR(128) PRIMARY KEY, ${values})`, (error, results, fields) => {
             if (error)
                 throw error;
